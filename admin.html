@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div id="login-section" class="flex flex-col items-center justify-center min-h-screen">
+    <form id="login-form" class="bg-white p-8 rounded shadow max-w-sm w-full">
+      <h2 class="text-2xl font-bold mb-4">Admin Login</h2>
+      <input type="email" id="admin-email" placeholder="Email" class="w-full mb-2 p-2 border rounded" required>
+      <input type="password" id="admin-password" placeholder="Password" class="w-full mb-4 p-2 border rounded" required>
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
+      <p id="login-error" class="text-red-500 mt-2 hidden">Invalid credentials</p>
+    </form>
+  </div>
+  <div id="dashboard-section" class="hidden">
+    <div class="flex min-h-screen">
+      <aside class="w-64 bg-white p-6 shadow">
+        <nav class="flex flex-col space-y-4">
+          <button class="nav-btn" data-section="hero">Hero</button>
+          <button class="nav-btn" data-section="about">About</button>
+          <button class="nav-btn" data-section="contact">Contact</button>
+          <button class="nav-btn" data-section="social">Social Links</button>
+          <button class="nav-btn" data-section="skills">Skills/Interests</button>
+          <button id="logout-btn" class="text-red-600 mt-8">Logout</button>
+        </nav>
+      </aside>
+      <main class="flex-1 p-8">
+        <section id="edit-hero" class="edit-section hidden">
+          <h2 class="text-xl font-bold mb-4">Edit Hero</h2>
+          <form id="hero-form" class="space-y-4">
+            <input type="text" id="edit-full-name" placeholder="Full Name" class="w-full p-2 border rounded">
+            <input type="text" id="edit-tagline" placeholder="Tagline" class="w-full p-2 border rounded">
+            <input type="file" id="edit-profile-photo" accept="image/*" class="w-full">
+            <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded">Save</button>
+          </form>
+        </section>
+        <section id="edit-about" class="edit-section hidden">
+          <h2 class="text-xl font-bold mb-4">Edit About Me</h2>
+          <form id="about-form" class="space-y-4">
+            <textarea id="edit-about-me" rows="5" class="w-full p-2 border rounded" placeholder="About Me"></textarea>
+            <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded">Save</button>
+          </form>
+        </section>
+        <section id="edit-contact" class="edit-section hidden">
+          <h2 class="text-xl font-bold mb-4">Edit Contact Info</h2>
+          <form id="contact-form" class="space-y-4">
+            <input type="email" id="edit-contact-email" placeholder="Email" class="w-full p-2 border rounded">
+            <input type="text" id="edit-contact-phone" placeholder="Phone" class="w-full p-2 border rounded">
+            <input type="text" id="edit-contact-location" placeholder="Location" class="w-full p-2 border rounded">
+            <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded">Save</button>
+          </form>
+        </section>
+        <section id="edit-social" class="edit-section hidden">
+          <h2 class="text-xl font-bold mb-4">Edit Social Links</h2>
+          <form id="social-form" class="space-y-4">
+            <div id="social-links-list" class="space-y-2"></div>
+            <div class="flex space-x-2">
+              <input type="text" id="new-social-platform" placeholder="Platform" class="p-2 border rounded">
+              <input type="url" id="new-social-url" placeholder="URL" class="p-2 border rounded">
+              <input type="text" id="new-social-icon" placeholder="Icon (e.g. github)" class="p-2 border rounded">
+              <button type="button" id="add-social-btn" class="bg-green-600 text-white px-4 rounded">Add</button>
+            </div>
+            <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded">Save All</button>
+          </form>
+        </section>
+        <section id="edit-skills" class="edit-section hidden">
+          <h2 class="text-xl font-bold mb-4">Edit Skills/Interests</h2>
+          <form id="skills-form" class="space-y-4">
+            <div id="skills-list-edit" class="flex flex-wrap gap-2"></div>
+            <div class="flex space-x-2">
+              <input type="text" id="new-skill-name" placeholder="Skill/Interest" class="p-2 border rounded">
+              <input type="text" id="new-skill-icon" placeholder="Icon (e.g. react)" class="p-2 border rounded">
+              <button type="button" id="add-skill-btn" class="bg-green-600 text-white px-4 rounded">Add</button>
+            </div>
+            <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded">Save All</button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html> 
